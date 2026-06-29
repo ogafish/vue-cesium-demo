@@ -1,0 +1,11 @@
+.git
+backup
+outputs
+_tmp*
+*.7z
+
+vue-cesium-vite/node_modules
+vue-cesium-vite/dist
+vue-cesium-vite/.env
+
+backend/pipeline-server/target

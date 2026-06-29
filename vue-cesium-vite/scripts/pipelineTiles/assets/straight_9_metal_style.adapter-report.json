@@ -1,0 +1,41 @@
+{
+  "id": "straight-9-metal",
+  "mode": "procedural-style",
+  "canUseTemplate": false,
+  "reasons": [
+    "未显式允许模板输出，默认只提取材质风格",
+    "用户指定 style-only，本次不输出可缩放模板"
+  ],
+  "primitiveCount": 1,
+  "totalPrimitiveCount": 1,
+  "meshNames": [
+    "Cylinder__0"
+  ],
+  "analysis": {
+    "extents": [
+      900.000048522785,
+      250.00000659738015,
+      250.00006794810707
+    ],
+    "sourceAxis": "X",
+    "sourceLength": 900.000048522785,
+    "sourceRadius": 125.00003397405354,
+    "radialSymmetry": 0.999999754597159,
+    "lengthToDiameter": 3.5999992156386114
+  },
+  "material": {
+    "name": "Scene_-_Root",
+    "color": "#010101",
+    "baseColorFactor": [
+      0.004220366466787754,
+      0.003855749927072304,
+      0.003855749927072304,
+      1
+    ],
+    "metallicFactor": 0,
+    "roughnessFactor": 0.6,
+    "doubleSided": true,
+    "sourceMaterialIndex": 0,
+    "hasTextureReferences": false
+  }
+}

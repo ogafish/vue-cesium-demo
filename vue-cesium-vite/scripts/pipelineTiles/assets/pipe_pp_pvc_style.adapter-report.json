@@ -1,0 +1,44 @@
+{
+  "id": "pipe-pp-pvc",
+  "mode": "procedural-style",
+  "canUseTemplate": false,
+  "reasons": [
+    "未显式允许模板输出，默认只提取材质风格",
+    "用户指定 style-only，本次不输出可缩放模板",
+    "文件名、节点名或 mesh 名称包含端盖/法兰/弯头/阀门等复杂管件特征，不直接拉伸"
+  ],
+  "primitiveCount": 2,
+  "totalPrimitiveCount": 3,
+  "meshNames": [
+    "CAPAC_Material.001_0",
+    "TEAVA.001_Material.001_0",
+    "TEAVA.001_Material.003_0"
+  ],
+  "analysis": {
+    "extents": [
+      0.13381287146868315,
+      0.13399643136690537,
+      0.6128070939884778
+    ],
+    "sourceAxis": "Z",
+    "sourceLength": 0.6128070939884778,
+    "sourceRadius": 0.06699821568345268,
+    "radialSymmetry": 0.9986301135310118,
+    "lengthToDiameter": 4.573309063063823
+  },
+  "material": {
+    "name": "Material.001",
+    "color": "#1b1c23",
+    "baseColorFactor": [
+      0.10783046806934761,
+      0.11046364309572622,
+      0.1372253250971476,
+      1
+    ],
+    "metallicFactor": 0,
+    "roughnessFactor": 0.392347995590114,
+    "doubleSided": true,
+    "sourceMaterialIndex": 0,
+    "hasTextureReferences": false
+  }
+}

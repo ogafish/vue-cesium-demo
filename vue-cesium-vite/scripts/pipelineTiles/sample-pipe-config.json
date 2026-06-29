@@ -1,0 +1,30 @@
+{
+  "id": "sample-line",
+  "outputSubdir": "sample-line",
+  "kind": "straight",
+  "model": {
+    "id": "procedural-round"
+  },
+  "start": {
+    "lon": 116.39083,
+    "lat": 39.9075,
+    "height": 30
+  },
+  "end": {
+    "lon": 116.39177,
+    "lat": 39.9075,
+    "height": 30
+  },
+  "shape": {
+    "type": "round",
+    "outerRadius": 1.2,
+    "wallThickness": 0.22,
+    "radialSegments": 64
+  },
+  "material": {
+    "name": "给水管线",
+    "color": "#00c7ff",
+    "metallicFactor": 0.12,
+    "roughnessFactor": 0.32
+  }
+}

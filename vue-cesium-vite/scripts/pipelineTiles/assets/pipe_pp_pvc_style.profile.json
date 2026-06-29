@@ -1,0 +1,21 @@
+{
+  "id": "pipe-pp-pvc",
+  "mode": "procedural-style",
+  "sourcePath": "D:\\vue-cesium-demo\\vue-cesium-vite\\scripts\\pipelineTiles\\assets\\pipe_pp__pvc.glb",
+  "sourceFile": "pipe_pp__pvc.glb",
+  "material": {
+    "name": "Material.001",
+    "color": "#1b1c23",
+    "baseColorFactor": [
+      0.10783046806934761,
+      0.11046364309572622,
+      0.1372253250971476,
+      1
+    ],
+    "metallicFactor": 0,
+    "roughnessFactor": 0.392347995590114,
+    "doubleSided": true,
+    "sourceMaterialIndex": 0,
+    "hasTextureReferences": false
+  }
+}

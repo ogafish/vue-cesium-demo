@@ -1,0 +1,24 @@
+FROM maven:3.9.9-eclipse-temurin-17 AS build
+WORKDIR /build/backend/pipeline-server
+COPY backend/pipeline-server/pom.xml ./
+RUN mvn -B -DskipTests dependency:go-offline
+COPY backend/pipeline-server/src ./src
+RUN mvn -B -DskipTests package
+
+FROM node:20-bookworm-slim
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openjdk-17-jre-headless \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY --from=build /build/backend/pipeline-server/target/*.jar /app/pipeline-server.jar
+
+COPY vue-cesium-vite/package*.json /app/frontend/
+RUN cd /app/frontend && npm ci
+COPY vue-cesium-vite/ /app/frontend/
+
+ENV PIPELINE_FRONTEND_ROOT=/app/frontend
+ENV PIPELINE_NODE_COMMAND=node
+EXPOSE 48090
+
+ENTRYPOINT ["java", "-jar", "/app/pipeline-server.jar"]
