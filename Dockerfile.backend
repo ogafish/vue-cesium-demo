@@ -10,22 +10,9 @@ RUN mvn -B -DskipTests package
 
 FROM node:20-bookworm-slim
 
-RUN printf '%s\n' \
-    'Types: deb' \
-    'URIs: http://mirrors.tencentyun.com/debian' \
-    'Suites: bookworm bookworm-updates' \
-    'Components: main' \
-    'Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg' \
-    '' \
-    'Types: deb' \
-    'URIs: http://mirrors.tencentyun.com/debian-security' \
-    'Suites: bookworm-security' \
-    'Components: main' \
-    'Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg' \
-    > /etc/apt/sources.list.d/debian.sources \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends openjdk-17-jre-headless \
-    && rm -rf /var/lib/apt/lists/*
+COPY --from=build /opt/java/openjdk /opt/java/openjdk
+ENV JAVA_HOME=/opt/java/openjdk
+ENV PATH="/opt/java/openjdk/bin:${PATH}"
 
 WORKDIR /app
 COPY --from=build /build/backend/pipeline-server/target/*.jar /app/pipeline-server.jar

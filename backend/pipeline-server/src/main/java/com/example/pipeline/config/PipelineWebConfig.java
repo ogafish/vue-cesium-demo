@@ -22,6 +22,11 @@ public class PipelineWebConfig implements WebMvcConfigurer {
             .resolve("generated")
             .toUri()
             .toString();
+
+        if (!generatedPath.endsWith("/")) {
+            generatedPath = generatedPath + "/";
+        }
+
         registry.addResourceHandler("/pipeline-tiles/generated/**")
             .addResourceLocations(generatedPath);
     }
