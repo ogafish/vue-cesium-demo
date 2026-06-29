@@ -10,7 +10,19 @@ RUN mvn -B -DskipTests package
 
 FROM node:20-bookworm-slim
 
-RUN sed -i 's/deb.debian.org/mirrors.cloud.tencent.com/g; s/security.debian.org/mirrors.cloud.tencent.com/g' /etc/apt/sources.list.d/debian.sources \
+RUN printf '%s\n' \
+    'Types: deb' \
+    'URIs: http://mirrors.tencentyun.com/debian' \
+    'Suites: bookworm bookworm-updates' \
+    'Components: main' \
+    'Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg' \
+    '' \
+    'Types: deb' \
+    'URIs: http://mirrors.tencentyun.com/debian-security' \
+    'Suites: bookworm-security' \
+    'Components: main' \
+    'Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg' \
+    > /etc/apt/sources.list.d/debian.sources \
     && apt-get update \
     && apt-get install -y --no-install-recommends openjdk-17-jre-headless \
     && rm -rf /var/lib/apt/lists/*
