@@ -1,12 +1,17 @@
 FROM maven:3.9.9-eclipse-temurin-17 AS build
 WORKDIR /build/backend/pipeline-server
+
+COPY maven-settings.xml /root/.m2/settings.xml
 COPY backend/pipeline-server/pom.xml ./
 RUN mvn -B -DskipTests dependency:go-offline
+
 COPY backend/pipeline-server/src ./src
 RUN mvn -B -DskipTests package
 
 FROM node:20-bookworm-slim
-RUN apt-get update \
+
+RUN sed -i 's/deb.debian.org/mirrors.cloud.tencent.com/g; s/security.debian.org/mirrors.cloud.tencent.com/g' /etc/apt/sources.list.d/debian.sources \
+    && apt-get update \
     && apt-get install -y --no-install-recommends openjdk-17-jre-headless \
     && rm -rf /var/lib/apt/lists/*
 
